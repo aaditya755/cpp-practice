@@ -1,0 +1,103 @@
+A nested loop is exactly what it sounds like: a loop placed inside the body of another loop.
+
+They are fundamental in programming for working with multi-dimensional data (like grids, matrices, or tables) and for generating visual patterns in text.
+
+How Nested Loops Work
+The golden rule of nested loops is: for every single iteration of the outer loop, the inner loop must complete its entire cycle.
+
+Think of it like a clock:
+
+The outer loop is the hour hand.
+
+The inner loop is the minute hand.
+
+For the hour hand to move forward by one, the minute hand must complete a full 60-step cycle.
+
+Generating Patterns
+When creating text patterns (like triangles or squares), nested loops act as a coordinate system:
+
+Outer Loop: Controls the rows (moving top to bottom).
+
+Inner Loop: Controls the columns (printing characters left to right within the current row).
+
+Here are the three most common foundational patterns, written in C++.
+
+1. The Square Pattern
+To print a square, the inner loop runs the exact same number of times as the outer loop.
+
+C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int size = 4;
+    
+    for (int i = 0; i < size; i++) {         // Outer loop (rows)
+        for (int j = 0; j < size; j++) {     // Inner loop (columns)
+            cout << "* ";                    // Print star, stay on same line
+        }
+        cout << endl;                        // Move to the next line after inner loop finishes
+    }
+    
+    return 0;
+}
+Output:
+
+Plaintext
+* * * * 
+* * * * 
+* * * * 
+* * * * 
+2. The Right-Angled Triangle
+To create a triangle, the number of columns depends on the current row. The inner loop's limit is tied to the outer loop's current variable (i).
+
+C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows = 5;
+    
+    for (int i = 1; i <= rows; i++) {        // Outer loop: 1, 2, 3, 4, 5
+        for (int j = 1; j <= i; j++) {       // Inner loop runs 'i' times
+            cout << "* ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
+Output:
+
+Plaintext
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+3. Number Patterns
+You can print the loop variables themselves instead of asterisks to see exactly how the data changes during execution.
+
+C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows = 4;
+    
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << j << " ";                // Printing the inner loop variable
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
+Output:
+
+Plaintext
+1 
+1 2 
+1 2 3 
+1 2 3 4
